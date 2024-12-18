@@ -1,14 +1,8 @@
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import LabourGangUsageRail from '../screens/labourManagementScreens/LabourGangUsageRailScreen';
-import GangUsageForMiscellaneous from '../screens/labourManagementScreens/GangUsageForMiscellaneousScreen';
-import LabourGangAllocation from '../screens/labourManagementScreens/LabourGangAllocationScreen';
-import React, {useState} from 'react';
+import React from 'react';
 import CustomSideNavigation from './sharedNavigation/CustomSideNavigation';
-import Stacking from '../screens/shedOperaionsScreens/StackingScreen';
-import ManualSync from '../screens/ManualSyncScreen';
 import StackNavigation from './StackNavigation/StackNavigation';
 import LoginStackNavigation from './StackNavigation/LoginStackNavigation';
-import Settings from '../screens/SettingsScreen';
 import LabourGangUsageScreen from '../screens/labourManagementScreens/LabourGangUsageScreen';
 import LabourGangUsageRailScreen from '../screens/labourManagementScreens/LabourGangUsageRailScreen';
 import GangUsageForMiscellaneousScreen from '../screens/labourManagementScreens/GangUsageForMiscellaneousScreen';
@@ -16,18 +10,19 @@ import LabourGangAllocationScreen from '../screens/labourManagementScreens/Labou
 import StackingScreen from '../screens/shedOperaionsScreens/StackingScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import ManualSyncScreen from '../screens/ManualSyncScreen';
-import {ImageBackground, useWindowDimensions} from 'react-native';
+import {useWindowDimensions} from 'react-native';
 import ROToken from '../screens/tokenManagement/ROToken';
 import GatePassScreen from '../screens/gateManagement/GatePassScreen';
-import OutWeightFormComponents from '../formComponents/weightBridge/OutWeightFormComponents';
 import OutWeightScreen from '../screens/weighBridge/OutWeightScreen';
 import GatePassExitScreen from '../screens/gateManagement/GatePassExitScreen';
 import InWeightScreen from '../screens/weighBridge/InWeightScreen';
-import GenerateTruckChit from '../formComponents/weightBridge/GenerateTruckChit';
 import GenerateTruckChitScreen from '../screens/weighBridge/GenerateTruckChitScreen';
 import LoadingScreen from '../screens/shedOperaionsScreens/LoadingScreen';
 import UpdateMoistScreen from '../screens/quality/UpdateMoistScreen';
 import StorageNavigation from '../formComponents/storage/StorageNavigation';
+import Dashboard from '../screens/DashboardScreen';
+import Dashboard1 from '../screens/DashboardScreen1';
+import StartScreen from '../screens/StartScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -77,11 +72,6 @@ export function DrawerNavigation() {
         component={StackingScreen}
         options={{drawerLabelStyle: {color: 'red'}}}
       />
-      {/* <Drawer.Screen
-        name="Logout"
-        component={LoginStackNavigation}
-        options={{drawerLabelStyle: {color: 'red'}}}
-      /> */}
       <Drawer.Screen
         name="Logout"
         component={LoginStackNavigation}
@@ -104,6 +94,7 @@ export function DrawerNavigation() {
       <Drawer.Screen name="Gate Pass Exit" component={GatePassExitScreen} />
       <Drawer.Screen name="InWeight" component={InWeightScreen} />
       <Drawer.Screen name="Loading" component={LoadingScreen} />
+      <Drawer.Screen name="Dashboard" component={Dashboard1} />
       <Drawer.Screen
         name="Update Moisture For Issue"
         component={UpdateMoistScreen}
@@ -113,7 +104,7 @@ export function DrawerNavigation() {
         name="GenerateTruckChit"
         component={GenerateTruckChitScreen}
       />
-       <Drawer.Screen name="Storage" component={StorageNavigation} />
+      <Drawer.Screen name="Storage" component={StorageNavigation} />
     </Drawer.Navigator>
   );
 }

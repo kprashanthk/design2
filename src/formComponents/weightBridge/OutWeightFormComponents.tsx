@@ -1,122 +1,3 @@
-// import { StyleSheet, View } from 'react-native';
-// import { Text } from 'react-native';
-// import { useState } from 'react';
-
-// import { useTranslation } from 'react-i18next';
-// import { TokenData } from '../../data';
-// import React from 'react';
-// import GenericDropDown from '../../shared/component/GenericDropDown';
-// import GenericInputField from '../../shared/component/GenericInputField';
-// import GenericButton from '../../shared/component/GenericButton';
-// import ModalAlert3 from './ModalAlert3';
-// import { outWeightData } from '../../data';
-
-// export default function OutWeightFormComponents() {
-//   const [openModal, setOpenModal] = useState(false);
-//   const [truckWeight, setTruckWeight] = useState('');
-//   const [weight, setWeight] = useState('');
-//   const [emptyBagsWeight, setEmptyBagsWeight] = useState('');
-//   const { t } = useTranslation();
-
-//   function handleOpenModal() {
-//     setOpenModal(true);
-//   }
-
-//   const handleTruckWeight = (weight: string) => {
-//     setTruckWeight(weight);
-//     setOpenModal(false);
-//   };
-
-//   const handleSubmit = () => {
-//     // Here you can gather and handle the form submission
-//     const formData = {
-//       tokenNumber: '', // You can retrieve this from the dropdown value
-//       commodity: '', // You can retrieve this from the commodity input
-//       cropYear: '', // You can retrieve this from the cropYear input
-//       bagType: '', // You can retrieve this from the bagType input
-//       noOfBags: '', // You can retrieve this from the noOfBags input
-//       shed: '', // You can retrieve this from the shed input
-//       stack: '', // You can retrieve this from the stack input
-//       tareWeight: '', // You can retrieve this from tareWeight input
-//       truckWeight: truckWeight, // Captured truck weight
-//       grossWeight: truckWeight, // Assuming grossWeight equals truckWeight
-//       emptyBagsWeight: emptyBagsWeight,
-//       netWeight: weight,
-//     };
-
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       <GenericDropDown
-//         Options={TokenData}
-//         label={'Token Number'}
-//         containerStyles={{ zIndex: 10 }}
-//       />
-//       <GenericInputField label={'commodity'} placeholder={'commodity'} />
-//       <GenericInputField label={'cropYear'} placeholder={'cropYear'} />
-//       <GenericInputField label={'bagType'} placeholder={'bagType'} />
-//       <GenericInputField label={'noOfBags'} placeholder={'noOfBags'} />
-//       <GenericInputField label={'shed'} placeholder={'shed'} />
-//       <GenericInputField label={'stack'} placeholder={'stack'} />
-//       <GenericInputField label={'Wagon'} placeholder={'Wagon'} />
-
-//       <GenericInputField
-//         label={'tareWeight(in Qtls)'}
-//         placeholder={'tareWeight(in Qtls)'}
-//       />
-//       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-//         <Text style={styles.inputFieldGrossWeight}>
-//           {t('grossWeight(in Qtls)')}
-//         </Text>
-//         <GenericButton
-//           title={'captureWeight'}
-//           onPress={handleOpenModal}
-//           buttonStyles={{ width: '80%' }}
-//         />
-//       </View>
-//       <GenericInputField
-//         label={'grossWeight(in Qtls)'}
-//         placeholder={'grossWeight (in Qtls)'}
-//         value={truckWeight}
-//         editable={false}
-//       />
-//       <GenericInputField
-//         label={'emptyBagsWeight(in Qtls)'}
-//         placeholder={'emptyBagsWeight(in Qtls)'}
-//         value={emptyBagsWeight}
-//         onChangeText={setEmptyBagsWeight}
-//       />
-//       <GenericInputField
-//         label={'netWeight(in Qtls)'}
-//         placeholder={'netWeight(in Qtls)'}
-//         value={weight}
-//         onChangeText={setWeight}
-//       />
-
-//       <GenericButton
-//         title="Submit"
-//         buttonStyles={{ width: '50%' }}
-//         onPress={handleSubmit}
-//       />
-//       <ModalAlert3
-//         visible={openModal}
-//         setValue={setOpenModal}
-//         onSubmit={handleTruckWeight}
-//       />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//   },
-
-//   inputFieldGrossWeight: {
-//     fontSize: 15,
-//   },
-// });
 import {Alert, StyleSheet, View} from 'react-native';
 import {Text} from 'react-native';
 import {useState, useEffect, useCallback} from 'react';
@@ -126,7 +7,6 @@ import React from 'react';
 import GenericDropDown from '../../shared/component/GenericDropDown';
 import GenericInputField from '../../shared/component/GenericInputField';
 import GenericButton from '../../shared/component/GenericButton';
-import ModalAlert3 from './ModalAlert3';
 import GenericCheckBox from '../../shared/component/GenericCheckBox';
 import GenericAlert from '../../shared/component/GenericAlert';
 import {useFocusEffect} from '@react-navigation/native';
@@ -135,6 +15,7 @@ import useAsyncStorage from '../../hooks/useAsyncStorage';
 import {Option, RODataType} from '../models';
 import GenericSnackBar from '../../shared/component/GenericSnackBar';
 import {Fonts} from '../../assets/colors/fonts';
+import OutWeightAlert from './OutWeightAlert';
 
 export default function OutWeightFormComponents() {
   const [openModal, setOpenModal] = useState(false);
@@ -340,7 +221,7 @@ export default function OutWeightFormComponents() {
         buttonStyles={{width: '50%'}}
         onPress={handleSubmit}
       />
-      <ModalAlert3
+      <OutWeightAlert
         visible={openModal}
         setValue={setOpenModal}
         onSubmit={handleTruckWeight}
@@ -378,8 +259,7 @@ const styles = StyleSheet.create({
   },
 
   inputFieldGrossWeight: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    fontFamily: Fonts.notoSans,
+    fontSize: 14,
+    fontFamily: Fonts.semiBoldFamiy,
   },
 });

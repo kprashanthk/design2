@@ -7,7 +7,7 @@ import GenericButton from '../../shared/component/GenericButton';
 import {useTranslation} from 'react-i18next';
 import {ActivityData, LabourData, ShedData} from '../../data';
 import {Colors} from '../../assets/colors/colors';
-import { Fonts } from '../../assets/colors/fonts';
+import {Fonts} from '../../assets/colors/fonts';
 
 type Props = {
   visible: boolean;
@@ -102,9 +102,8 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 20,
-    fontWeight: 'bold',
     color: 'white',
   },
   contentContainer: {

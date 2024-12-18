@@ -9,7 +9,6 @@ import GenericList from '../../shared/component/GenericList';
 import {Colors} from '../../assets/colors/colors';
 import GenericInputField from '../../shared/component/GenericInputField';
 import GenericDropDown from '../../shared/component/GenericDropDown';
-import {useROData} from '../../hooks/RODataContext';
 import GenericAlert from '../../shared/component/GenericAlert';
 import {useTranslation} from 'react-i18next';
 import {useFocusEffect} from '@react-navigation/native';
@@ -19,7 +18,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import GenericDropDown1 from '../../shared/component/GenericDropDown1';
 import {PriorityList} from '../../data';
 import GenericSnackBar from '../../shared/component/GenericSnackBar';
-import { Fonts } from '../../assets/colors/fonts';
+import {Fonts} from '../../assets/colors/fonts';
 
 export default function CaptureInWeight() {
   const {storedValue, setStoredValue, storeAndValidateData} = useAsyncStorage();
@@ -87,8 +86,6 @@ export default function CaptureInWeight() {
     const filterList = list.filter(
       item => filteredIds.includes(item.id) || filterValues.cropYear === 'All',
     );
-
-    console.log(filterList);
 
     setList(filterList);
 
@@ -188,7 +185,6 @@ export default function CaptureInWeight() {
     const selectedRoData = storedValue?.find(
       (ro: RODataType) => ro.token === selectedValue,
     );
-    console.log('Selected RO', selectedRo);
     setSelectedRo(selectedRoData || null);
   };
 
@@ -235,7 +231,6 @@ export default function CaptureInWeight() {
         key={selectedRo?.token}
         Options={options}
         label={'Token Number'}
-        // onSelect={value => handleInputs(value, 'tokenNumber')}
         onSelect={handleRoSelect}
       />
       <GenericInputField
@@ -382,10 +377,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 18,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
     flexWrap: 'wrap',
     textAlign: 'center',
     color: Colors.mainColor,
@@ -401,7 +394,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,
-    // marginTop: -15,
   },
   otpButtonContainer: {
     flex: 4,

@@ -56,7 +56,6 @@ const StackManagementScreen = () => {
   function handleToolTip(item: any) {
     setOpenToolTip(true);
     setToolTipData(item);
-    console.log(item);
   }
 
   const renderStackIcon = ({item, index}: {item: any; index: number}) => {
@@ -82,7 +81,10 @@ const StackManagementScreen = () => {
               <Icon width={60} height={60} fill={item.values.color} />
             </View>
 
-            <Text style={{textAlign: 'center'}}>Stack {index + 1}</Text>
+            <Text
+              style={{textAlign: 'center', fontFamily: Fonts.regularFamily}}>
+              Stack {index + 1}
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -91,19 +93,6 @@ const StackManagementScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        {/* <Image
-          source={require('../../assets/5.jpg')}
-          style={styles.imageStyles}
-        />
-        <LinearGradient
-          colors={['transparent', '#003831']}
-          style={styles.gradientOverlay}
-        /> */}
-      </View>
-
-      <View style={styles.menuContainer}></View>
-
       <View style={[styles.scrollableContainer]}>
         <View style={[styles.titleContainer]}>
           <TouchableOpacity
@@ -154,36 +143,9 @@ const StackManagementScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    // backgroundColor: Colors.newColor,
   },
-  imageContainer: {
-    width: '100%',
-    height: '80%',
-    borderBottomLeftRadius: 25,
-    borderBottomRightRadius: 25,
-    overflow: 'hidden',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  imageStyles: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-    opacity: 0.5,
-  },
-  gradientOverlay: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: '30%',
-  },
-  menuContainer: {
-    position: 'absolute',
-    top: 35,
-    left: 20,
-    zIndex: 20,
-  },
+
   scrollableContainer: {
     position: 'absolute',
     top: 0,
@@ -206,10 +168,8 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 30,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
     color: Colors.mainColor,
     textAlign: 'center',
     flex: 1,
@@ -245,7 +205,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 20,
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.regularFamily,
   },
 });
 

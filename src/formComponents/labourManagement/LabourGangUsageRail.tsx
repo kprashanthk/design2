@@ -5,13 +5,12 @@ import GenericDropDown from '../../shared/component/GenericDropDown';
 import GenericInputField from '../../shared/component/GenericInputField';
 import GenericButton from '../../shared/component/GenericButton';
 import GenericList from '../../shared/component/GenericList';
-import ModalAlert from './LabourGangUsageDetailAlert';
 import {useTranslation} from 'react-i18next';
 import {GangListData, OperationData, ReferenceNumberData} from '../../data';
 import LabourGangUsageDetailAlert from './LabourGangUsageDetailAlert';
 import {Colors} from '../../assets/colors/colors';
 import GenericAlert from '../../shared/component/GenericAlert';
-import { Fonts } from '../../assets/colors/fonts';
+import {Fonts} from '../../assets/colors/fonts';
 
 interface DropDownValue {
   title: string;
@@ -103,10 +102,8 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 22,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
     color: Colors.mainColor,
   },
 });

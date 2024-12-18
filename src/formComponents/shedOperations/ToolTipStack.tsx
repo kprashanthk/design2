@@ -68,9 +68,8 @@ export default function ToolTipStack({visible, setValue, item}: Props) {
                 {item?.values?.utilization}
               </Text>
               <Text style={styles.valueTextStyles}>
-                <Text style={{fontWeight: 'bold'}}>
-                  {t('Stack Capacity')}:{' '}
-                </Text>
+                {/* <Text style={{fontWeight: 'bold'}}> */}
+                {t('Stack Capacity')}: {/* </Text> */}
                 {item?.values?.capacity}
               </Text>
             </View>
@@ -96,7 +95,6 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   titleContainer: {
-    // backgroundColor: '#FF5722',
     padding: 20,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
@@ -105,9 +103,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 28,
-    fontWeight: 'bold',
     color: 'white',
     textAlign: 'center',
   },
@@ -121,10 +118,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
   },
   valueTextStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 22,
-    fontStyle: 'normal',
-    fontWeight: '600',
     paddingVertical: 10,
   },
 });

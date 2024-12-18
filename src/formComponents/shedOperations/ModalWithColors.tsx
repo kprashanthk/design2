@@ -9,7 +9,7 @@ import {
   Keyboard,
 } from 'react-native';
 import {colorsTypeData} from '../../data';
-import { Fonts } from '../../assets/colors/fonts';
+import {Fonts} from '../../assets/colors/fonts';
 type Props = {
   visible: boolean;
   setValue: React.Dispatch<React.SetStateAction<boolean>>;
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     color: '#000',
-    fontFamily: Fonts.notoSans
+    fontFamily: Fonts.regularFamily,
   },
 });
 

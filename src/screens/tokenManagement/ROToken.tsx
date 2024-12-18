@@ -9,12 +9,12 @@ import {
   View,
 } from 'react-native';
 import {Colors} from '../../assets/colors/colors';
-import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import ROTokenForm from '../../formComponents/tokenManagement/ROTokenForm';
 import {Fonts} from '../../assets/colors/fonts';
+import GenericHeader from '../../shared/component/GenericHeader';
 
 export default function ROToken() {
   const navigation = useNavigation();
@@ -25,31 +25,16 @@ export default function ROToken() {
   };
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        {/* <Image
-          source={require('../../assets/5.jpg')}
-          style={styles.imageStyles}
-        /> */}
-        {/* <LinearGradient
-          colors={['transparent', Colors.backgroundColor]}
-          style={styles.gradientOverlay}
-        /> */}
-      </View>
-
       <View style={styles.card}>
-        <View style={styles.menuContainer}>
-          <TouchableOpacity
-            onPress={openDrawer}
-            hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
-            <Icon name="menu" color={Colors.mainColor} size={30} />
-          </TouchableOpacity>
-        </View>
+        <GenericHeader
+          title="Issue Token"
+          onPress={() => {}}
+          cameraVisible={false}
+          cameraRequired={false}
+        />
         <ScrollView
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled">
-          <View style={styles.titleContainer}>
-            <Text style={styles.titleStyles}>{t('Issue Token')}</Text>
-          </View>
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
             <ScrollView
@@ -69,29 +54,6 @@ export default function ROToken() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.backgroundColor,
-  },
-  imageContainer: {
-    width: '100%',
-    height: '80%',
-    borderBottomLeftRadius: 25,
-    borderBottomRightRadius: 25,
-    overflow: 'hidden',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  imageStyles: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-    opacity: 0.5,
-  },
-  gradientOverlay: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: '30%',
   },
   card: {
     position: 'absolute',
@@ -116,7 +78,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    top: '1%',
+    top: '4%',
     left: '50%',
     transform: [{translateX: -30}],
     zIndex: 10,
@@ -127,12 +89,11 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 30,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
     color: Colors.mainColor,
     textAlign: 'center',
+    // marginTop: '8%',
   },
   menuContainer: {
     position: 'absolute',

@@ -10,6 +10,7 @@ import GenericCheckBox from '../../shared/component/GenericCheckBox';
 import GenericAlert from '../../shared/component/GenericAlert';
 import {useTranslation} from 'react-i18next';
 import GenericSnackBar from '../../shared/component/GenericSnackBar';
+import {RoData} from '../../data';
 
 export type RODataType = {
   roNumber: string;
@@ -43,49 +44,6 @@ export default function ROTokenForm() {
   const [visible, setVisible] = useState(false);
   const [snackBar, setSnackBar] = useState(false);
   const {t} = useTranslation();
-
-  // useFocusEffect(
-  //   useCallback(() => {
-  //     const fetchStoredValue = async () => {
-  //       try {
-  //         const value = await AsyncStorage.getItem('roList');
-  //         if (value != null) {
-  //           const parsedValue = JSON.parse(value);
-  //           if (
-  //             JSON.stringify(parsedValue) !==
-  //             JSON.stringify(prevStoredValueRef.current)
-  //           ) {
-  //             setStoredValue(parsedValue);
-  //             prevStoredValueRef.current = parsedValue;
-  //           }
-  //         }
-  //       } catch (error) {
-  //         console.error(
-  //           'Error fetching stored value from AsyncStorage:',
-  //           error,
-  //         );
-  //       }
-  //     };
-
-  //     fetchStoredValue();
-
-  //     if (storedValue && storedValue.length > 0) {
-  //       const updatedOptions = storedValue
-  //         .filter((ro: RODataType) => !ro.flags?.createTokenProcessed)
-  //         .map((ro: RODataType) => ({
-  //           title: ro.roNumber,
-  //           value: ro.roNumber,
-  //         }));
-
-  //       setOptions(prevOptions => {
-  //         if (JSON.stringify(prevOptions) !== JSON.stringify(updatedOptions)) {
-  //           return updatedOptions;
-  //         }
-  //         return prevOptions;
-  //       });
-  //     }
-  //   }, [storedValue]),
-  // );
   useFocusEffect(
     useCallback(() => {
       const fetchStoredValue = async () => {
@@ -100,6 +58,8 @@ export default function ROTokenForm() {
               setStoredValue(parsedValue);
               prevStoredValueRef.current = parsedValue;
             }
+          } else {
+            setStoredValue(RoData);
           }
         } catch (error) {
           console.error(
@@ -256,7 +216,7 @@ export default function ROTokenForm() {
         setVisible={() => setVisible(false)}
         setSnackBar={setSnackBar}
       />
-    <GenericSnackBar
+      <GenericSnackBar
         visible={snackBar}
         setVisible={setSnackBar}
         title={createGatePass ? 'Capture InWeight' : 'Gate Pass'}

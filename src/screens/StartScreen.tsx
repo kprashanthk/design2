@@ -15,7 +15,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Colors} from '../assets/colors/colors';
-import { Fonts } from '../assets/colors/fonts';
+import {Fonts} from '../assets/colors/fonts';
 
 export default function StartScreen() {
   const languages = [
@@ -40,7 +40,6 @@ export default function StartScreen() {
     await AsyncStorage.setItem('selectedLanguage', lng);
     setSelectedLanguage(lng);
     i18next.changeLanguage(lng);
-    console.log('Selected Language:', lng);
   }
 
   return (
@@ -48,30 +47,12 @@ export default function StartScreen() {
       style={styles.container}
       contentContainerStyle={styles.scrollContentContainer}
       keyboardShouldPersistTaps="handled">
-      {/* <View style={styles.imageContainer}>
-        <Image
-          source={require('../../assets/1.jpg')}
-          style={styles.imageStyles}
-        />
-        <LinearGradient
-          colors={['transparent', '#003831']}
-          style={styles.gradientOverlay}
-        />
-      </View> */}
       <View style={styles.logoCenterStyles}>
         <View style={styles.logoContainer}>
           <Image
             source={require('../assets/2.png')}
             style={styles.imageStyles}
           />
-          {/* <Image
-            source={require('../assets/fonts/2.png')}
-            style={styles.logoStyles}
-          /> */}
-          {/* <Image
-          source={require('../assets/fonts/2.png')}
-          style={styles.logoContainer}
-          /> */}
         </View>
       </View>
       <View style={styles.titleContainer}>
@@ -118,47 +99,24 @@ export default function StartScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#003831',
   },
   scrollContentContainer: {
     flexGrow: 1,
     justifyContent: 'center',
   },
-  imageContainer: {
-    width: '100%',
-    height: 400,
-    borderBottomLeftRadius: 25,
-    borderBottomRightRadius: 25,
-    overflow: 'hidden',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
   imageStyles: {
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
   },
-  gradientOverlay: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: '30%',
-  },
   logoContainer: {
     width: 250,
     height: 250,
-    // backgroundColor: 'white',
     overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 100,
-    // elevation: 30,
-    // shadowColor: 'green',
-    // shadowOffset: {width: 1, height: 1},
-    // shadowOpacity: 1,
-    // shadowRadius: 1,
-    // marginTop: -100,
   },
   logoStyles: {
     width: 250,
@@ -176,10 +134,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 30,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
     color: Colors.mainColor,
     textAlign: 'center',
   },
@@ -213,18 +169,13 @@ const styles = StyleSheet.create({
     color: Colors.mainColor,
   },
   languageTextStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 20,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
     color: '#003831',
   },
   languageTitleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 24,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
-    // color: 'rgba(255,255,255,0.7)',
   },
   buttonContainer: {
     backgroundColor: Colors.mainColor,

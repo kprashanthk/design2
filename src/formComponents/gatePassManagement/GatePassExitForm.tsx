@@ -1,8 +1,6 @@
-import {Alert, StyleSheet, View} from 'react-native';
-import {Text} from 'react-native';
-import {SetStateAction, useCallback, useEffect, useState} from 'react';
+import {Alert, KeyboardAvoidingView, StyleSheet, View} from 'react-native';
+import {useCallback, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {TokenData} from '../../data';
 import GenericDropDown from '../../shared/component/GenericDropDown';
 import GenericButton from '../../shared/component/GenericButton';
 import GenericAlert from '../../shared/component/GenericAlert';
@@ -16,7 +14,6 @@ import {useFocusEffect} from '@react-navigation/native';
 import {Fonts} from '../../assets/colors/fonts';
 
 export default function GatePassExitFormComponents() {
-  //const [openModal, setOpenModal] = useState(false);
   const [visible, setVisible] = useState(false);
   const [checkData, setCheckData] = useState(false);
   const [visibleViewDetails, setvisibleViewDetails] = useState(false);
@@ -112,20 +109,6 @@ export default function GatePassExitFormComponents() {
     }
   }, [selectedRo]);
 
-  // const getTokenData = () => {
-  //   if (selectedRo != null) {
-  //     setTokenData({
-  //       id: '1',
-  //       tokenNumber: selectedRo?.token,
-  //       noOfBags: selectedRo?.bags,
-  //       cropYear: selectedRo?.cropYear,
-  //       bagType: selectedRo?.bagType,
-  //       shed: selectedRo?.shed,
-  //       stack: selectedRo?.stack,
-  //     });
-  //   }
-  // };
-
   const handleSubmit = async () => {
     if (!selectedRo) {
       Alert.alert('Error', 'Please select Token Number.');
@@ -155,7 +138,7 @@ export default function GatePassExitFormComponents() {
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container}>
       <GenericDropDown
         key={options}
         Options={options}
@@ -189,7 +172,7 @@ export default function GatePassExitFormComponents() {
             containerStyles={{zIndex: 5}}
           />
           <GenericInputField
-            label={'comments'}
+            label={'Comments'}
             placeholder={'comments 255 characters (max) '}
             multiline={true}
           />
@@ -199,18 +182,15 @@ export default function GatePassExitFormComponents() {
       <GenericButton
         title="Submit"
         buttonStyles={{width: '50%'}}
-        onPress={() => setVisible(true)}
+        onPress={handleSubmit}
       />
-      {/* <GenericList1 items={filteredData} 
-        inputValues={list} 
-        setInputValues={setList}        /> */}
 
       <GenericAlert
         visible={visible}
         title="Gatepass Exit succesfully"
         setVisible={() => setVisible(false)}
       />
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -226,10 +206,9 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 20,
     fontStyle: 'normal',
-    fontWeight: 'bold',
     color: '#003831',
   },
 });

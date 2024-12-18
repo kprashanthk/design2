@@ -6,6 +6,8 @@ import {
   GenericInputFieldStyles,
 } from '../../styles/styles';
 import {Colors} from '../../assets/colors/colors';
+import {Fonts} from '../../assets/colors/fonts';
+import {useTranslation} from 'react-i18next';
 
 interface Option {
   title: string;
@@ -41,6 +43,7 @@ export default function GenericDropDown1({
   const [visible, setVisible] = useState<boolean>(false);
   const [searchedValue, setSearchedValue] = useState<any[]>(options);
   const [error, setError] = useState(false);
+  const {t} = useTranslation();
 
   useEffect(() => {
     setError(false);
@@ -91,7 +94,7 @@ export default function GenericDropDown1({
           <View>
             <TextInput
               mode="outlined"
-              label={label}
+              label={t('label')}
               value={selected}
               style={[
                 GenericInputFieldStyles.buttonContainer,
@@ -111,6 +114,11 @@ export default function GenericDropDown1({
               textColor="black"
               theme={{
                 roundness: 10,
+                fonts: {
+                  bodyLarge: {
+                    fontFamily: Fonts.regularFamily,
+                  },
+                },
                 colors: {
                   primary: Colors.mainColor,
                   onPrimary: Colors.mainColor,
@@ -136,7 +144,7 @@ export default function GenericDropDown1({
             key={index}
             title={item.title}
             onPress={() => selectValueHandler(item.title)}
-            titleStyle={{color: 'white'}}
+            titleStyle={{color: 'white', fontFamily: Fonts.regularFamily}}
           />
         ))}
       </Menu>

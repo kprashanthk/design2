@@ -97,9 +97,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 28,
-    fontWeight: 'bold',
     color: 'white',
     textAlign: 'center',
   },
@@ -112,10 +111,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
   },
   valueTextStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.regularFamily,
     fontSize: 22,
-    fontStyle: 'normal',
-    fontWeight: '600',
     paddingVertical: 10,
   },
 });

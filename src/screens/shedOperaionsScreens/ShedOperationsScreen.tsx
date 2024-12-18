@@ -13,16 +13,14 @@ import {
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Entypo from 'react-native-vector-icons/Entypo';
 import * as Progress from 'react-native-progress';
-import LinearGradient from 'react-native-linear-gradient';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {DrawerActions, useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import GenericToolTip from '../../shared/component/GenericToolTip';
 import ModalWithColors from '../../formComponents/shedOperations/ModalWithColors';
 import {useTranslation} from 'react-i18next';
 import {ShedData1} from '../../data';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Colors} from '../../assets/colors/colors';
-import { Fonts } from '../../assets/colors/fonts';
+import {Fonts} from '../../assets/colors/fonts';
 
 interface shedItem {
   id: string;
@@ -90,7 +88,7 @@ const ShedOperationsScreen = () => {
               <FontAwesome5 name={item.iconName} color={item.color} size={35} />
             </View>
 
-            <Text>{item.title}</Text>
+            <Text style={{fontFamily: Fonts.regularFamily}}>{item.title}</Text>
             <Progress.Bar
               progress={item.progress}
               width={100}
@@ -103,16 +101,7 @@ const ShedOperationsScreen = () => {
   };
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        {/* <Image
-          source={require('../../assets/5.jpg')}
-          style={styles.imageStyles}
-        />
-        <LinearGradient
-          colors={['transparent', '#003831']}
-          style={styles.gradientOverlay}
-        /> */}
-      </View>
+
       <View style={[styles.scrollableContainer]}>
         <View
           style={[
@@ -173,29 +162,6 @@ const ShedOperationsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
-  },
-  imageContainer: {
-    width: '100%',
-    height: '80%',
-    borderBottomLeftRadius: 25,
-    borderBottomRightRadius: 25,
-    overflow: 'hidden',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  imageStyles: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-    opacity: 0.5,
-  },
-  gradientOverlay: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: '30%',
   },
   menuContainer: {
     position: 'absolute',
@@ -221,15 +187,14 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 30,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
     color: Colors.mainColor,
   },
   innerContainer: {
     flex: 1,
     padding: 20,
+    fontFamily: Fonts.regularFamily,
   },
   flatlistContainer: {
     flexGrow: 1,

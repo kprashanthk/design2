@@ -11,7 +11,6 @@ export default function WelcomeScreen() {
       <View style={styles.imageContainer}>
         <Image
           source={require('../assets/2.png')}
-          style={styles.imageStyles}
           accessibilityLabel="Logo"
           accessible={true}
         />
@@ -29,18 +28,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'ffffff',
   },
-
-  // imageContainer: {
-  //   width: '100%',
-  //   height: 400,
-  //   borderBottomLeftRadius: 25,
-  //   borderBottomRightRadius: 25,
-  //   overflow: 'hidden',
-  // },
-  // imageStyles: {
-  //   width: '100%',
-  //   height: '100%',
-  //   resizeMode: 'cover',
-  //   opacity: 0.8,
-  // },
 });
