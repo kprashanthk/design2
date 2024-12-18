@@ -5,7 +5,7 @@ import {Text} from 'react-native';
 import {Snackbar} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Colors} from '../../assets/colors/colors';
-import { Fonts } from '../../assets/colors/fonts';
+import {Fonts} from '../../assets/colors/fonts';
 
 type Props = {
   visible: boolean;
@@ -40,16 +40,25 @@ export default function GenericSnackBar({
         onPress: () => {
           navigation.navigate(navigationText);
         },
+        theme: {
+          fonts: {
+            bodyLarge: {
+              fontFamily: Fonts.regularFamily,
+            },
+          },
+        },
       }}
       onIconPress={handleCloseSnackBar}
       style={{
         backgroundColor: Colors.mainColor,
         position: 'absolute',
-        bottom: -20,
+        bottom: 20,
         left: 0,
         right: 0,
       }}>
-      <Text style={{fontFamily: Fonts.notoSans, fontSize: 14}}>{t(title)}</Text>
+      <Text style={{fontFamily: Fonts.regularFamily, fontSize: 14}}>
+        {t(title)}
+      </Text>
     </Snackbar>
   );
 }

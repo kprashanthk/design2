@@ -52,7 +52,10 @@ export default function GenerateTruckChit() {
   useEffect(() => {
     if (storedValue && storedValue.length > 0) {
       const updatedOptions = storedValue
-        .filter((ro: RODataType) => ro.flags?.moisture && ro.flags?.loading)
+        .filter(
+          (ro: RODataType) =>
+            ro.flags?.moisture && ro.flags?.loading && !ro.flags?.truckChit,
+        )
         .map((ro: RODataType) => ({
           title: ro.token,
           value: ro.token,

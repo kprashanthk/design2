@@ -4,13 +4,12 @@ import {SetStateAction, useState} from 'react';
 import GenericDropDown from '../../shared/component/GenericDropDown';
 import GenericButton from '../../shared/component/GenericButton';
 import GenericList from '../../shared/component/GenericList';
-import ModalAlert2 from './LabourGangAllocationAlert';
 import {useTranslation} from 'react-i18next';
 import {GangListData, ReferenceNumberData} from '../../data';
 import LabourGangAllocationAlert from './LabourGangAllocationAlert';
 import {Colors} from '../../assets/colors/colors';
 import GenericAlert from '../../shared/component/GenericAlert';
-import { Fonts } from '../../assets/colors/fonts';
+import {Fonts} from '../../assets/colors/fonts';
 
 export default function LabourGangAllocation() {
   const [openModal, setOpenModal] = useState(false);
@@ -78,10 +77,9 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 20,
     fontStyle: 'normal',
-    fontWeight: 'bold',
     color: Colors.mainColor,
     textAlign: 'center',
   },

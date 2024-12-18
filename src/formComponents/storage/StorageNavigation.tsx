@@ -1,12 +1,10 @@
 import {DrawerActions, useNavigation} from '@react-navigation/native';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Colors} from '../../assets/colors/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useTranslation} from 'react-i18next';
-import LinearGradient from 'react-native-linear-gradient';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import React from 'react';
-import { Fonts } from '../../assets/colors/fonts';
+import {Fonts} from '../../assets/colors/fonts';
 
 export default function StorageNavigation() {
   const navigation = useNavigation();
@@ -50,15 +48,6 @@ export default function StorageNavigation() {
   return (
     <View style={styles.container}>
       <View style={styles.scrollableContainer}>
-        {/* <View style={styles.imageContainer}> */}
-        {/* <Image
-          source={require('../../assets/5.jpg')}
-          style={styles.imageStyles}
-        />
-        <LinearGradient
-          colors={['transparent', Colors.backgroundColor]}
-          style={styles.gradientOverlay}
-        /> */}
         <View style={styles.menuContainer}>
           <TouchableOpacity
             onPress={openDrawer}
@@ -68,27 +57,12 @@ export default function StorageNavigation() {
         </View>
 
         <View style={styles.headerContainer}>
-          {/* <TouchableOpacity
-            onPress={openDrawer}
-            hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
-            <Icon name="menu" color={Colors.mainColor} size={30} />
-          </TouchableOpacity> */}
-          {/* <TouchableOpacity
-            onPress={() => navigation.navigate('Operations')}
-            hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
-            <Ionicons
-              name="arrow-back-circle-sharp"
-              color={Colors.white}
-              size={40}
-            />
-          </TouchableOpacity> */}
           <Text style={styles.titleText}>{t('Storage')}</Text>
         </View>
       </View>
       <View style={styles.navigationContainer}>
         {navItems.map(renderNavItem)}
       </View>
-      {/* </View> */}
     </View>
   );
 }
@@ -96,7 +70,7 @@ export default function StorageNavigation() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.backgroundColor,
+    // backgroundColor: Colors.newColor,
   },
   imageContainer: {
     width: '100%',
@@ -136,10 +110,9 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontSize: 30,
-    fontWeight: 'bold',
     color: Colors.mainColor,
     marginLeft: 30,
-    fontFamily: Fonts.notoSans
+    fontFamily: Fonts.boldFamily,
   },
   navigationContainer: {
     position: 'absolute',
@@ -156,22 +129,16 @@ const styles = StyleSheet.create({
     width: '45%',
     margin: '2.5%',
     alignItems: 'center',
-    //backgroundColor: '#009a7a',
     padding: 15,
     borderRadius: 10,
     borderWidth: 1,
-    // elevation: 5, // Shadow for Android
-    // shadowColor: '#000', // Shadow for iOS
-    // shadowOffset: {width: 0, height: 2},
-    // shadowOpacity: 0.2,
-    // shadowRadius: 4,
   },
   navigationText: {
     marginTop: 10,
     fontSize: 14,
     textAlign: 'center',
     color: Colors.mainColor,
-    fontFamily: Fonts.notoSans
+    fontFamily: Fonts.regularFamily,
   },
   menuContainer: {
     position: 'absolute',

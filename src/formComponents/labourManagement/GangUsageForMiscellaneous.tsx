@@ -5,19 +5,16 @@ import GenericCalenderField from '../../shared/component/GenericCalenderField';
 import GenericInputField from '../../shared/component/GenericInputField';
 import GenericCheckBox from '../../shared/component/GenericCheckBox';
 import GenericButton from '../../shared/component/GenericButton';
-import ModalAlert from './LabourGangUsageDetailAlert';
-import {useTranslation} from 'react-i18next';
 import {ActivityData, LabourData} from '../../data';
 import LabourGangUsageDetailAlert from './LabourGangUsageDetailAlert';
 import GenericAlert from '../../shared/component/GenericAlert';
-import { Fonts } from '../../assets/colors/fonts';
+import {Fonts} from '../../assets/colors/fonts';
 
 export default function GangUsageForMiscellaneous() {
   const [openModal, setOpenModal] = useState(false);
   const [visible, setVisible] = useState(false);
   const [checked, setChecked] = useState(false);
 
-  const {t} = useTranslation();
   const handleCheck = () => {
     setChecked(!checked);
   };
@@ -82,10 +79,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   titleStyles: {
-    fontFamily:Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 20,
     fontStyle: 'normal',
-    fontWeight: 'bold',
     color: '#617c8d',
   },
 });

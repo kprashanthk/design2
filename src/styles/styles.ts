@@ -7,7 +7,8 @@ export const GenericInputFieldStyles = StyleSheet.create({
     flex: 1,
     paddingVertical: 8,
     borderRadius: 30,
-  },
+    fontFamily: Fonts.regularFamily,
+},
   buttonContainer: {
     width: '100%',
     backgroundColor: 'white',
@@ -17,6 +18,7 @@ export const GenericInputFieldStyles = StyleSheet.create({
     shadowOpacity: 0.7,
     shadowRadius: 5,
     borderRadius: 10,
+    fontFamily: Fonts.regularFamily,
   },
 });
 export const GenericModalStyles = StyleSheet.create({
@@ -41,9 +43,8 @@ export const GenericModalStyles = StyleSheet.create({
     alignItems: 'center',
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 24,
-    fontWeight: 'bold',
     color: 'white',
     textAlign: 'center',
   },
@@ -108,7 +109,7 @@ export const GenericButtonStyles = StyleSheet.create({
     textAlign: 'center',
     flexWrap: 'wrap',
     width: '100%',
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.regularFamily,
   },
 });
 
@@ -129,8 +130,7 @@ export const GenericCheckBoxStyles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    fontWeight: 'bold',
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     marginLeft: 10,
     color: Colors.mainColor,
   },
@@ -156,8 +156,7 @@ export const GenericHeaderStyles = StyleSheet.create({
   },
   headerText: {
     fontSize: 18,
-    fontWeight: 'bold',
-    fontFamily: Fonts.notoSans
+    fontFamily: Fonts.boldFamily,
   },
   dividerContainer: {
     borderWidth: 1.5,
@@ -182,10 +181,9 @@ export const GenericAlertStyles = StyleSheet.create({
   successText: {
     marginVertical: 15,
     fontSize: 18,
-    fontWeight: 'bold',
     textAlign: 'center',
     color: 'black',
-    fontFamily: Fonts.notoSans
+    fontFamily: Fonts.boldFamily,
   },
   okButton: {
     backgroundColor: 'green',
@@ -196,9 +194,8 @@ export const GenericAlertStyles = StyleSheet.create({
   okButtonText: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 'bold',
     textAlign: 'center',
-    fontFamily: Fonts.notoSans
+    fontFamily: Fonts.boldFamily,
   },
 });
 
@@ -241,7 +238,7 @@ export const GenericListStyles = StyleSheet.create({
   text: {
     fontSize: 18,
     flex: 1,
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.regularFamily,
   },
   iconStyle: {
     marginLeft: 20,
@@ -263,7 +260,7 @@ export const GenericListStyles = StyleSheet.create({
   },
   accordinText: {
     fontSize: 15,
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.regularFamily,
     flexShrink: 1,
     flexWrap: 'wrap',
   },

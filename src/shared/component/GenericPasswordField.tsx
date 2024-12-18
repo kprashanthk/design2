@@ -8,6 +8,7 @@ import {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Colors} from '../../assets/colors/colors';
+import {Fonts} from '../../assets/colors/fonts';
 
 type Props = {
   containerStyles?: StyleProp<ViewStyle>;
@@ -63,6 +64,11 @@ export default function GenericPasswordField({
         textColor="black"
         theme={{
           roundness: 10,
+          fonts: {
+            bodyLarge: {
+              fontFamily: Fonts.regularFamily,
+            },
+          },
           colors: {
             primary: Colors.mainColor,
             onPrimary: '#003831',

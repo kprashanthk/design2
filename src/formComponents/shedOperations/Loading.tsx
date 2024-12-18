@@ -7,7 +7,6 @@ import GenericButton from '../../shared/component/GenericButton';
 import GenericList from '../../shared/component/GenericList';
 import {Colors} from '../../assets/colors/colors';
 import GenericAlert from '../../shared/component/GenericAlert';
-import {useROData} from '../../hooks/RODataContext';
 import {useTranslation} from 'react-i18next';
 import {useFocusEffect} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -16,12 +15,11 @@ import {Option, RODataType} from '../models';
 import GenericDropDown1 from '../../shared/component/GenericDropDown1';
 import {PriorityList} from '../../data';
 import GenericSnackBar from '../../shared/component/GenericSnackBar';
-import { Fonts } from '../../assets/colors/fonts';
+import {Fonts} from '../../assets/colors/fonts';
 
 export default function Loading() {
   const {t} = useTranslation();
 
-  const {ROData, setROData} = useROData();
 
   const [list, setList] = useState([]);
   const [visible, setVisible] = useState(false);
@@ -81,8 +79,6 @@ export default function Loading() {
     const filterList = list.filter(
       item => filteredIds.includes(item.id) || filterValues.cropYear === 'All',
     );
-
-    console.log(filterList);
 
     setList(filterList);
 
@@ -178,7 +174,6 @@ export default function Loading() {
     const selectedRoData = storedValue?.find(
       (ro: RODataType) => ro.token === selectedValue,
     );
-    console.log('Selected RO', selectedRo);
     setSelectedRo(selectedRoData || null);
   };
 
@@ -358,10 +353,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 20,
     fontStyle: 'normal',
-    fontWeight: 'bold',
     flexWrap: 'wrap',
     textAlign: 'center',
     color: Colors.mainColor,

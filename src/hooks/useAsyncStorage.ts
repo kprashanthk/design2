@@ -10,12 +10,6 @@ const useAsyncStorage = () => {
     const loadData = async () => {
       try {
         const value = await AsyncStorage.getItem('roList');
-        // if (value) {
-        //   setStoredValue(JSON.parse(value));
-        // } else {
-        //   // await storeData('roList', RoData);
-        //   setStoredValue(RoData);
-        // }
         if (!value) {
           setStoredValue(RoData);
         }
@@ -28,19 +22,10 @@ const useAsyncStorage = () => {
     loadData();
   }, [storedValue]);
 
-  // useEffect(() => {
-  //   const loadData = async () => {
-  //     if (!storedValue) {
-  //       await storeData('roList', RoData); // Store the data with a key
-  //     }
-  //   };
-  //   loadData();
-  // }, [storedValue]);
-
   const storeData = async (key: string, value: any) => {
     try {
       await AsyncStorage.setItem(key, JSON.stringify(value));
-      setStoredValue(value); // Update the storedValue state
+      setStoredValue(value);
     } catch (e) {
       setError('Error saving data to AsyncStorage');
       console.error('Error saving data to AsyncStorage:', e);

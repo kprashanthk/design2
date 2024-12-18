@@ -20,7 +20,7 @@ import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import GenericButton from '../shared/component/GenericButton';
 import {Colors} from '../assets/colors/colors';
-import { Fonts } from '../assets/colors/fonts';
+import {Fonts} from '../assets/colors/fonts';
 interface shedItem {
   id: string;
   title: string;
@@ -40,16 +40,6 @@ const ManualSync = () => {
 
   return (
     <View style={styles.container}>
-      {/* <View style={styles.imageContainer}>
-        <Image
-          source={require('../../assets/5.jpg')}
-          style={styles.imageStyles}
-        />
-        <LinearGradient
-          colors={['transparent', '#003831']}
-          style={styles.gradientOverlay}
-        />
-      </View> */}
       <View>
         <View style={styles.titleContainer}>
           <TouchableOpacity
@@ -125,7 +115,7 @@ const ManualSync = () => {
             <View style={{justifyContent: 'center', alignItems: 'center'}}>
               <GenericButton
                 title="Go To Home"
-                containerStyles={{width: '50%', marginTop: 20}}
+                containerStyles={{width: '50%'}}
                 onPress={() => {
                   navigation.navigate('Storage');
                 }}
@@ -141,7 +131,6 @@ const ManualSync = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#003831',
   },
   innerContainer: {
     flexDirection: 'row',
@@ -159,64 +148,13 @@ const styles = StyleSheet.create({
   },
   MainHeading: {
     fontSize: 18,
-    fontWeight: 'bold',
-    fontFamily: Fonts.notoSans
+    fontFamily: Fonts.boldFamily,
   },
   SubHeading: {
     fontSize: 15,
-    fontFamily: Fonts.notoSans
+    fontFamily: Fonts.semiBoldFamiy,
   },
 
-  imageContainer: {
-    width: '100%',
-    height: '80%',
-    borderBottomLeftRadius: 25,
-    borderBottomRightRadius: 25,
-    overflow: 'hidden',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  imageStyles: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-    opacity: 0.6,
-  },
-  gradientOverlay: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: '30%',
-  },
-  card: {
-    position: 'absolute',
-    top: '3%',
-    left: '3%',
-    right: '3%',
-    bottom: '3%',
-    padding: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    borderRadius: 10,
-    shadowColor: '#000',
-    shadowOpacity: 0.5,
-    shadowOffset: {width: 2, height: 2},
-    shadowRadius: 6,
-    zIndex: 5,
-  },
-  scannerContainer: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    top: '1%',
-    left: '50%',
-    transform: [{translateX: -30}],
-    zIndex: 10,
-  },
   titleContainer: {
     marginTop: 30,
     flexDirection: 'row',
@@ -231,10 +169,8 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
-    fontSize: 30,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
+    fontFamily: Fonts.boldFamily,
+    fontSize: 24,
     color: Colors.mainColor,
     textAlign: 'center',
   },

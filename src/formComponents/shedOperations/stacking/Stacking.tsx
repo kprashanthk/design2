@@ -19,7 +19,7 @@ import {
 } from '../../../data';
 import {Colors} from '../../../assets/colors/colors';
 import GenericAlert from '../../../shared/component/GenericAlert';
-import { Fonts } from '../../../assets/colors/fonts';
+import {Fonts} from '../../../assets/colors/fonts';
 
 interface DropDownValue {
   title: string;
@@ -243,15 +243,6 @@ export default function Stacking() {
             inputValues={listData}
             setInputValues={setListData}
           />
-          {/* <GenericList
-              items={list}
-              inputValues={listData}
-              setInputValues={setListData}
-              checkBoxRequired={true}
-              onCheck={(id: string, isChecked: boolean) =>
-                handleCheckboxChange(id, isChecked)
-              }
-            /> */}
           <View style={{marginLeft: 5}}>
             <Icon
               name="plus-circle"
@@ -302,10 +293,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 22,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
     color: 'black',
   },
   searchContainer: {

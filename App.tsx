@@ -5,23 +5,15 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import {DrawerNavigation} from './src/navigation/DrawerNavigation';
 import {NavigationContainer} from '@react-navigation/native';
-import DropDown from './src/shared/component/DropDown';
-import DropdownInput from './src/shared/component/DropDown';
-import {
-  AsyncStorageProvider,
-  useAsyncStorageContext,
-} from './src/hooks/AsyncStorageContext';
-import {RODataProvider} from './src/hooks/RODataContext';
-// import useAsyncStorage from './src/hooks/useAsyncStorage';
+import {AsyncStorageProvider} from './src/hooks/AsyncStorageContext';
 
 function App(): React.JSX.Element {
   const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
-    // logAllKeys();
     const timer = setTimeout(() => {
       setShowWelcome(false);
-    }, 4000);
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -36,9 +28,7 @@ function App(): React.JSX.Element {
             <NavigationContainer>
               <DrawerNavigation />
             </NavigationContainer>
-            // <WelcomeScreen />
           )}
-          {/* <DropDown /> */}
         </View>
       </PaperProvider>
     </SafeAreaProvider>
@@ -53,9 +43,7 @@ const styles = StyleSheet.create({
 
 const AppWrapper = () => (
   <AsyncStorageProvider>
-    <RODataProvider>
-      <App />
-    </RODataProvider>
+    <App />
   </AsyncStorageProvider>
 );
 

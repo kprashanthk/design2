@@ -3,19 +3,9 @@ import {
   View,
   Text,
   ScrollView,
-  SafeAreaView,
-  useWindowDimensions,
-  FlatList,
   StyleSheet,
-  Pressable,
-  Image,
   TouchableOpacity,
 } from 'react-native';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import * as Progress from 'react-native-progress';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import LinearGradient from 'react-native-linear-gradient';
 
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
@@ -25,15 +15,7 @@ import {RadioButton} from 'react-native-paper';
 import i18next from '../locales/language';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Colors} from '../assets/colors/colors';
-import { Fonts } from '../assets/colors/fonts';
-
-interface shedItem {
-  id: string;
-  title: string;
-  iconName: string;
-  progress: number;
-  stackCount: number;
-}
+import {Fonts} from '../assets/colors/fonts';
 
 const Settings = () => {
   const navigation = useNavigation();
@@ -51,7 +33,6 @@ const Settings = () => {
     await AsyncStorage.setItem('selectedLanguage', lng);
     setLanguage(lng);
     i18next.changeLanguage(lng);
-    console.log('Selected Language:', lng);
     setShowLanguageOptions(false);
   }
 
@@ -68,17 +49,6 @@ const Settings = () => {
 
   return (
     <View style={styles.container}>
-      {/* <View style={styles.imageContainer}>
-        <Image
-          source={require('../../assets/5.jpg')}
-          style={styles.imageStyles}
-        />
-        <LinearGradient
-          colors={['transparent', '#003831']}
-          style={styles.gradientOverlay}
-        />
-      </View> */}
-
       <View style={styles.menuContainer}>
         <TouchableOpacity
           onPress={openDrawer}
@@ -129,9 +99,8 @@ const Settings = () => {
                   <Text
                     style={{
                       marginLeft: 10,
-                      fontFamily: Fonts.notoSans,
+                      fontFamily: Fonts.boldFamily,
                       fontSize: 24,
-                      fontWeight: 'bold',
                     }}>
                     English
                   </Text>
@@ -146,9 +115,8 @@ const Settings = () => {
                   <Text
                     style={{
                       marginLeft: 10,
-                      fontFamily: Fonts.notoSans,
+                      fontFamily: Fonts.boldFamily,
                       fontSize: 24,
-                      fontWeight: 'bold',
                     }}>
                     हिंदी
                   </Text>
@@ -165,36 +133,6 @@ const Settings = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#003831',
-  },
-  imageContainer: {
-    width: '100%',
-    height: '80%',
-    borderBottomLeftRadius: 25,
-    borderBottomRightRadius: 25,
-    overflow: 'hidden',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  imageStyles: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-    opacity: 0.7,
-  },
-  fixedHeader: {
-    position: 'absolute',
-    marginTop: 35,
-    marginLeft: 30,
-    zIndex: 10,
-    width: '100%',
-  },
-  gradientOverlay: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: '30%',
   },
   menuContainer: {
     position: 'absolute',
@@ -209,7 +147,6 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     flex: 1,
-    // backgroundColor: 'rgba(255, 255, 255, 0.5)',
     borderRadius: 10,
   },
   scrollViewContent: {
@@ -221,10 +158,8 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 30,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
     color: Colors.mainColor,
   },
   innerContainer: {
@@ -243,7 +178,6 @@ const styles = StyleSheet.create({
   shedContainer: {
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    // marginRight: 10,
   },
   cont: {
     flexDirection: 'column',
@@ -263,7 +197,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 20,
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.regularFamily,
   },
   content: {
     flex: 1,
@@ -273,10 +207,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     textAlign: 'center',
     fontSize: 22,
-    fontFamily: Fonts.notoSans,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
-    // color: 'Colors.mainColor',
+    fontFamily: Fonts.boldFamily,
     marginRight: 10,
   },
   outerContainer: {
@@ -284,7 +215,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
     backgroundColor: 'white',
     borderRadius: 10,
-    borderWidth: 2,
   },
 });
 export default Settings;

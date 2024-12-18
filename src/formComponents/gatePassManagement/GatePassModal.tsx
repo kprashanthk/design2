@@ -1,17 +1,11 @@
 import React from 'react';
-import {
-  Modal,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Modal, ScrollView, StyleSheet, Text, View} from 'react-native';
 
 import {useTranslation} from 'react-i18next';
-import Icon from 'react-native-vector-icons/Entypo';
 import GenericInputField from '../../shared/component/GenericInputField';
-import { Fonts } from '../../assets/colors/fonts';
+import {Fonts} from '../../assets/colors/fonts';
+import GenericButton from '../../shared/component/GenericButton';
+import {Colors} from '../../assets/colors/colors';
 type Props = {
   visible: boolean;
   setValue: React.Dispatch<React.SetStateAction<boolean>>;
@@ -37,16 +31,6 @@ export default function GatePassModal({visible, setValue, viewData}: Props) {
           <View style={styles.titleContainer}>
             <View style={{flexDirection: 'row', marginLeft: 90}}>
               <Text style={styles.titleStyles}>{t('View Details')}</Text>
-              <TouchableOpacity
-                onPress={handleCloseModal}
-                hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
-                <Icon
-                  name="cross"
-                  color="white"
-                  size={30}
-                  style={{marginLeft: 90}}
-                />
-              </TouchableOpacity>
             </View>
           </View>
           <ScrollView
@@ -88,6 +72,11 @@ export default function GatePassModal({visible, setValue, viewData}: Props) {
               value={viewData?.stack || ''}
               editable={false}
             />
+            <GenericButton
+              onPress={handleCloseModal}
+              title="Close"
+              containerStyles={{width: '50%'}}
+            />
           </ScrollView>
         </View>
       </View>
@@ -117,14 +106,14 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
+    color: Colors.white,
   },
   contentContainer: {
     paddingHorizontal: 10,
     paddingVertical: 20,
+    alignItems: 'center',
   },
   buttonContainer: {
     flexDirection: 'row',

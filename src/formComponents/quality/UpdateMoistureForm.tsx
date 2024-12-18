@@ -12,7 +12,7 @@ import {RODataType} from '../models';
 import {useFocusEffect} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useAsyncStorage from '../../hooks/useAsyncStorage';
-import { Fonts } from '../../assets/colors/fonts';
+import {Fonts} from '../../assets/colors/fonts';
 
 export default function UpdateMoistureForm() {
   const {storeAndValidateData, setStoredValue, storedValue} = useAsyncStorage();
@@ -27,47 +27,6 @@ export default function UpdateMoistureForm() {
     '2': {Stack: '2', Shed: '107', Moisture: ''},
     '3': {Stack: '3', Shed: '101', Moisture: ''},
   });
-
-  const [formData, setFormData] = useState({
-    roNumber: '',
-    commodity: '',
-    cropYear: '',
-    bagType: '',
-    noOfBags: '',
-  });
-
-  const tokenData1 = [
-    {title: '101', value: '101'},
-    {title: '102', value: '102'},
-    {title: '103', value: '103'},
-  ];
-
-  // const values = [
-  //   {
-  //     roNumber: '1101',
-  //     commodity: 'Wheat',
-  //     cropYear: '2017-18',
-  //     bagType: 'SBT',
-  //     bags: 30,
-  //     title: '101',
-  //   },
-  //   {
-  //     roNumber: '1102',
-  //     commodity: 'Paddy',
-  //     cropYear: '2019-20',
-  //     bagType: 'SBT',
-  //     bags: 50,
-  //     title: '102',
-  //   },
-  //   {
-  //     roNumber: '1103',
-  //     commodity: 'Wheat',
-  //     cropYear: '2018-19',
-  //     bagType: 'SBT',
-  //     bags: 60,
-  //     title: '103',
-  //   },
-  // ];
 
   const TokenDataForQuality = [
     {
@@ -305,16 +264,6 @@ export default function UpdateMoistureForm() {
             setInputValues={setInputValues}
             outerContainerStyles={{backgroundColor: Colors.white}}
           />
-
-          {/* <GenericList
-              items={list}
-              inputValues={listData}
-              setInputValues={setListData}
-              checkBoxRequired={true}
-              onCheck={(id: string, isChecked: boolean) =>
-                handleCheckboxChange(id, isChecked)
-              }
-            /> */}
         </View>
       )}
 
@@ -338,10 +287,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   titleStyles: {
-    fontFamily: Fonts.notoSans,
+    fontFamily: Fonts.boldFamily,
     fontSize: 20,
-    fontStyle: 'normal',
-    fontWeight: 'bold',
     color: Colors.mainColor,
     textAlign: 'center',
   },
